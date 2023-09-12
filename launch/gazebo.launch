@@ -43,6 +43,10 @@
     <node name="rviz" pkg="rviz" type="rviz" output="screen"/>
 
     <node pkg="vacuum_robot" type="control_robot" name="control_robot" output="screen"/>
+
+     <!--from chat GPT-->
+    <param name="odom" value="odom"/> 
+    
   </launch>
   
 
