@@ -2,38 +2,34 @@
 <robot name="vacuum_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
  <!-- ros_control plugin -->
-<gazebo>
-<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-<robotNamespace>/vacuum_robot</robotNamespace>
-<robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
-</plugin>
+
+ <gazebo>
+  <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
+  <robotNamespace>vacuum_robot</robotNamespace> 
+  </plugin>
 </gazebo>
 
-  <gazebo>
-<plugin name="differential_drive_controller"
-filename="libgazebo_ros_diff_drive.so">
-<updateRate>20</updateRate>
-<legacyMode>false</legacyMode>
-<alwaysOn>true</alwaysOn>
-<robotBaseFrame>base_footprint</robotBaseFrame>
-<leftJoint>LeftWheel_Joint</leftJoint>
-<rightJoint>RightWheel_Joint</rightJoint>
-<wheelSeparation>0.173</wheelSeparation>
-<wheelDiameter>0.08</wheelDiameter>
-<wheelAcceleration>1</wheelAcceleration>
-<torque>5</torque>
-<commandTopic>cmd_vel</commandTopic>
-<odometryTopic>odom</odometryTopic>
-<odometryFrame>odom</odometryFrame>
-<odometrySource>odom</odometrySource>
-<publishWheelTF>false</publishWheelTF>
-<publishOdomTF>true</publishOdomTF>
-<publishOdom>true</publishOdom>
-<publishWheelJointState>true</publishWheelJointState>
-<rosDebugLevel>na</rosDebugLevel>
-<wheelTorque>3</wheelTorque>
-<publishTf>1</publishTf>  
-</plugin>
+<gazebo>
+    <plugin name="differential_drive_controller" filename="libgazebo_ros_diff_drive.so">
+      <updateRate>20</updateRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+      <leftJoint>LeftWheel_Joint</leftJoint>
+      <rightJoint>RightWheel_Joint</rightJoint>
+      <wheelSeparation>0.173</wheelSeparation>
+      <wheelDiameter>0.08</wheelDiameter>
+      <wheelAcceleration>2.0</wheelAcceleration>
+      <wheelTorque>100</wheelTorque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometrySource>1</odometrySource>
+      <publishWheelTF>false</publishWheelTF>
+      <publishOdomTF>true</publishOdomTF>
+      <publishOdom>true</publishOdom>
+      <publishWheelJointState>true</publishWheelJointState>
+      <legacyMode>false</legacyMode>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
   </gazebo>
 
   <!-- Link1 -->
